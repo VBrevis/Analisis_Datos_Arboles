@@ -6,8 +6,8 @@ library("dplyr")
 
 
 # Se cargan los datos
-datos <- read.csv('C:/Users/Will/Desktop/U/Analisis/Lab 4/Analisis_Datos_Arboles/bank-additional.csv', sep = ";")
-#datos <- read.csv('C:/bank-additional.csv', sep = ";")
+#datos <- read.csv('C:/Users/Will/Desktop/U/Analisis/Lab 4/Analisis_Datos_Arboles/bank-additional.csv', sep = ";")
+datos <- read.csv('C:/bank-additional.csv', sep = ";")
 
 
 # Se borran registros con datos desconocidos del conjunto de datos
@@ -81,7 +81,7 @@ set.seed(2021)
 training.index <- createDataPartition(datos.dis$y, p=0.7)$Resample1
 training.set <- datos.dis[training.index, ]
 test.set <- datos.dis[-training.index, ]
-tree <- C5.0(y ~ ., training.set)
+tree <- C5.0(y ~ ., training.set, trials = 10)
 # Álbol
 plot(tree)
 summary(tree)
