@@ -52,7 +52,7 @@ datos.dis$y <- as.factor(datos.dis$y)
 # Semilla
 #set.seed(012)
 set.seed(2021)
-training.index <- createDataPartition(datos.dis$y, p=0.5)$Resample1
+training.index <- createDataPartition(datos.dis$y, p=0.7)$Resample1
 training.set <- datos.dis[training.index, ]
 test.set <- datos.dis[-training.index, ]
 tree <- C5.0(y ~ ., training.set)
